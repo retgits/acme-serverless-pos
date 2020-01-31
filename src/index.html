@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/9865173223.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/style.css">
+    <script src="./assets/script.js"></script>
+    <link rel="shortcut icon" href="./assets/favicon.png">
+    <title>ACME Fitness Serverless Point-of-Sales</title>
+</head>
+
+<body>
+    <!-- MultiStep Form -->
+    <div class="container-fluid" id="grad1">
+        <div class="row justify-content-center mt-0">
+            <div class="col-md-12">
+                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                    <h2><strong>Buy your products now!</strong></h2>
+                    <p>Take your product home today using this easy three step process</p>
+                    <div class="row">
+                        <div class="col-md-12 mx-0">
+                            <form id="msform">
+                                <!-- progressbar -->
+                                <ul id="progressbar">
+                                    <li class="active" id="account"><strong>Product</strong></li>
+                                    <li id="personal"><strong>Account</strong></li>
+                                    <li id="overview"><strong>Overview</strong></li>
+                                    <li id="confirm"><strong>Finish</strong></li>
+                                </ul> <!-- fieldsets -->
+                                <fieldset id="products">
+                                    <div class="form-card">
+                                        <h2 class="fs-title">Choose the product you want to buy</h2>
+                                        <div class="radio-group row row-cols-1 row-cols-md-4" id="prodcards">
+                                        </div>
+                                    </div>
+                                    <button type="button" name="next" class="next btn btn-primary">Next Step</button>
+                                </fieldset>
+                                <fieldset id="users">
+                                    <div class="form-card">
+                                        <h2 class="fs-title">Choose which account to charge</h2>
+                                        <div class="radio-group row row-cols-1 row-cols-md-3" id="usercards">
+                                        </div>
+                                    </div>
+                                    <button type="button" name="previous"
+                                        class="previous btn btn-secondary">Previous</button>
+                                    <button type="button" name="next" class="next btn btn-primary">Next Step</button>
+                                </fieldset>
+                                <fieldset id="overview">
+                                    <div class="form-card">
+                                        <h2 class="fs-title">Overview Information</h2>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"><i
+                                                        class="fas fa-archive"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" id="exampleInputProduct"
+                                                placeholder="Username" aria-describedby="basic-addon1" disabled>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"><i
+                                                        class="far fa-user"></i></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" id="exampleInputUser"
+                                                placeholder="Username" aria-describedby="basic-addon1" disabled>
+                                        </div>
+                                    </div> <button type="button" name="previous"
+                                        class="previous btn btn-secondary">Previous</button>
+                                    <button type="button" id="make_payment" name="make_payment"
+                                        class="next btn btn-primary">Confirm</button>
+                                </fieldset>
+                                <fieldset id="success">
+                                    <div class="form-card">
+                                        <h2 class="fs-title text-center">Success !</h2> <br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-3"> <img
+                                                    src="https://img.icons8.com/color/96/000000/ok--v2.png"
+                                                    class="fit-image"> </div>
+                                        </div> <br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-7 text-center">
+                                                <h5>You Have Successfully Purchased A Product</h5>
+                                                <button type="button" id="buy_another" class="btn btn-link">Buy another
+                                                    product</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
