@@ -8,18 +8,44 @@ The Point-of-Sales is part of the [ACME Fitness Serverless Shop](https://github.
 
 * [An AWS Account](https://portal.aws.amazon.com/billing/signup)
 * Deployed the serverless apps of the [ACME Fitness Serverless Shop](https://github.com/retgits/acme-serverless)
+* [A Pulumi account](https://app.pulumi.com/signup)
 
-## Hosting Options
+## Deploying
 
-The Point-of-Sales app can be hosted on [Amazon S3](https://aws.amazon.com/s3).
+Regardless which deployment option you take, you'll need to update the endpoint locations in [script.js](./src/assets/script.js). If you choose to use CloudFormation, you'll also need to update the `author` in [Makefile](./deploy/cloudformation/Makefile) to make sure that the bucket name is unique. If you choose Pulumi,  you'll also need to update the `bucket` in [Pulumi.dev.yaml](./pulumi/Pulumi.dev.yaml).
 
-## Using Amazon S3
+### With Pulumi
 
-### Prerequisites for Amazon S3
+To deploy the Payment Service you'll need a [Pulumi account](https://app.pulumi.com/signup). Once you have your Pulumi account and configured the [Pulumi CLI](https://www.pulumi.com/docs/get-started/aws/install-pulumi/), you can initialize a new stack using the Pulumi templates in the [pulumi](./pulumi) folder.
 
-* [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) installed and configured
+```bash
+cd pulumi
+pulumi stack init <your pulumi org>/acmeserverless-pos/dev
+```
 
-### Build and deploy for Amazon S3
+```yaml
+config:
+  aws:region: us-west-2 ## The region you want to deploy to
+  awsconfig:s3:
+    bucket: mybucket ## The bucket in which you want to store the POS app
+  awsconfig:tags:
+    author: retgits ## The author, you...
+    feature: acmeserverless
+    team: vcs ## The team you're on
+    version: 0.1.0 ## The version
+```
+
+To create the Pulumi stack, and create the Payment service, run `pulumi up`.
+
+If you want to keep track of the resources in Pulumi, you can add tags to your stack as well.
+
+```bash
+pulumi stack tag set app:name acmeserverless
+pulumi stack tag set app:feature acmeserverless-pos
+pulumi stack tag set app:domain pos
+```
+
+### With CloudFormation
 
 Clone this repository
 
@@ -27,8 +53,6 @@ Clone this repository
 git clone https://github.com/retgits/acme-serverless-pos
 cd acme-serverless-pos
 ```
-
-Update the endpoint locations in [script.js](./src/assets/script.js) and update the `author` in [Makefile](./deploy/cloudformation/Makefile) to make sure that the bucket name is unique.
 
 Change directories to the [deploy/cloudformation](./deploy/cloudformation) folder
 
@@ -51,7 +75,6 @@ http://<bucket-name>.s3-website.us-west-2.amazonaws.com
 # or
 http://<bucket-name>.s3-website-us-west-2.amazonaws.com
 ```
-
 
 ## Contributing
 

@@ -1,0 +1,3 @@
+name: acmeserverless-pos
+runtime: go
+description: The Payment service is part of the ACME Fitness Serverless Shop. The goal of this specific service is to serve as the front-end for Point-of-Sales locations.
