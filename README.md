@@ -32,10 +32,10 @@ config:
     author: retgits ## The author, you...
     feature: acmeserverless
     team: vcs ## The team you're on
-    version: 0.1.0 ## The version
+    version: 0.2.0 ## The version
 ```
 
-To create the Pulumi stack, and create the Payment service, run `pulumi up`.
+To create the Pulumi stack, and create the POS service, run `pulumi up`.
 
 If you want to keep track of the resources in Pulumi, you can add tags to your stack as well.
 

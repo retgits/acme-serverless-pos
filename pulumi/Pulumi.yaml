@@ -1,3 +1,21 @@
 name: acmeserverless-pos
 runtime: go
 description: The Payment service is part of the ACME Fitness Serverless Shop. The goal of this specific service is to serve as the front-end for Point-of-Sales locations.
+template:
+  config:
+      aws:region:
+        description: The AWS region to deploy into
+      awsconfig:s3:
+        bucket:
+          description: The bucket in which you want to store the POS app
+      awsconfig:tags:
+        author:
+          description: The author, you...
+        feature:
+          description: The name of the overall app you're deploying
+          default: acmeserverless
+        team:
+          description: The team you're on
+        version:
+          description: The version
+          default: 0.2.0

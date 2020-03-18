@@ -1,9 +1,0 @@
-config:
-  aws:region: us-west-2
-  awsconfig:s3:
-    bucket: acme-serverless-pos
-  awsconfig:tags:
-    author: retgits
-    feature: acmeserverless
-    team: vcs
-    version: 0.1.0
