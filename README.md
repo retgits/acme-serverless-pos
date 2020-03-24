@@ -23,6 +23,8 @@ cd pulumi
 pulumi stack init <your pulumi org>/acmeserverless-pos/dev
 ```
 
+Pulumi is configured using a file called `Pulumi.dev.yaml`. A sample configuration is available in the Pulumi directory. You can rename [`Pulumi.dev.yaml.sample`](./pulumi/Pulumi.dev.yaml.sample) to `Pulumi.dev.yaml` and update the variables accordingly. Alternatively, you can change variables directly in the [main.go](./pulumi/main.go) file in the pulumi directory. The configuration contains:
+
 ```yaml
 config:
   aws:region: us-west-2 ## The region you want to deploy to
